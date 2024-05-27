@@ -30,10 +30,10 @@ const Header: React.FC<HeaderProps> = ({
         `,className)}>
             <div className="
             w-full
-
             mb-4
             flex
-            items-centerjustify-between
+            items-center
+            justify-between
             ">
                 <div className="
                 hidden
