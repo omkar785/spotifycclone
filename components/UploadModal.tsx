@@ -1,6 +1,6 @@
 "use client";
 
-import { FieldValues, set, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Modal from "./Modal";
 import  useUploadModal  from "@/hooks/useUploadModal";
 import { useState } from "react";
@@ -25,11 +25,11 @@ const {
     reset
 }= useForm<FieldValues>({
     defaultValues:{
-        author:'',
-        title:'',
+        author:"",
+        title:"",
         song: null,
         image: null,
-    }
+    },
 });
 
    const onChange = (open:boolean) => {
@@ -39,7 +39,7 @@ const {
     }
    };
 
-   const onSubmit: SubmitHandler<FieldValues> = async(values) => {
+   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
         try{
             setIsLoading(true);
 
@@ -51,14 +51,14 @@ const {
                 return;
             }
 
-            const uniquieID= uniqid();
+            const uniqueID= uniqid();
 
             //upload song
             const {
                 data: songData,
                 error: songError,
-            } =await supabaseClient.storage.from("songs").upload(`song-$(values.title)-$(uniquieID)`,songFile,{
-                cacheControl: "3600",
+            } =await supabaseClient.storage.from('songs').upload(`song-$(values.title)-$(uniqueID)`,songFile,{
+                cacheControl: '3600',
                 upsert: false,
             });
 
@@ -71,8 +71,8 @@ const {
             const {
                 data: imageData,
                 error: imageError,
-            } =await supabaseClient.storage.from("images").upload(`image-$(values.title)-$(uniquieID)`,imageFile,{
-                cacheControl: "3600",
+            } =await supabaseClient.storage.from('images').upload(`image-$(values.title)-$(uniqueID)`,imageFile,{
+                cacheControl: '3600',
                 upsert: false,
             });
 
@@ -109,7 +109,7 @@ const {
         }finally{
             setIsLoading(false);
         }
-   }
+   };
 
     return (
         <Modal 
@@ -143,7 +143,7 @@ const {
                     type="file"
                     disabled={isLoading}
                     accept=".mp3"
-                    {...register('song',{required:true})}
+                    {...register("song",{required:true})}
                 />
                 </div>
                 <div>
