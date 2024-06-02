@@ -93,7 +93,9 @@ const Header: React.FC<HeaderProps> = ({
                 flex
                 md:hidden gap-x-2 itmes-center
                 ">
-                    <button className="
+                    <Button 
+                    onClick={() => router.push('/')}
+                    className="
                     rounded-full
                     p-2
                     bg-white
@@ -104,8 +106,10 @@ const Header: React.FC<HeaderProps> = ({
                     transition
                     ">
                         <HiHome className="text-black" size={20}/>
-                    </button>
-                    <button className="
+                    </Button>
+                    <Button 
+                    onClick={() => router.push('/search')}
+                    className="
                     rounded-full
                     p-2
                     bg-white
@@ -116,7 +120,7 @@ const Header: React.FC<HeaderProps> = ({
                     transition
                     ">
                         <BiSearch className="text-black" size={20}/>
-                    </button>
+                    </Button>
 
                 </div>
                 <div className="
