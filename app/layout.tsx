@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   description: "Music???",
 };
 
+<link rel="icon" href="/favicon.ico" sizes="any" />
+
 export const revalidate =0;
 
 export default async function RootLayout({
